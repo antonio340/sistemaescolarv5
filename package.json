@@ -1,0 +1,12 @@
+{
+  "name": "sistemaescolarv5",
+  "version": "1.0.0",
+  "description": "sistema escolar v5",
+  "main": "index.js",
+  "author": "antonio aguilar",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bulma": "^0.9.1"
+  }
+}

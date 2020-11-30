@@ -1,0 +1,17 @@
+{
+    "name": "antho/sistemaescolarv5",
+    "description": "sistema escolar basico",
+    "type": "project",
+    "authors": [
+        {
+            "name": "antonio340",
+            "email": "anthony_341@outlook.es"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^8.15",
+        "illuminate/events": "^8.15",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.2"
+    }
+}
