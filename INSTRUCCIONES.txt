@@ -1,0 +1,27 @@
+en la tabla perfiles:
+->columna nombreperfil
+  ->insertar primero la fila "maestro" y segundo la fila "alumno" 
+
+en la tabla usuarios:
+->en la columna perfiles_idperfiles:
+  ->poner el id del tipo de perfil del usuario (si es maestro debe ser '1', si es alumno debe ser '2')
+->columna nombreusuario:
+  ->escribe un nombre de usuario
+->columna password:
+  ->escribe una contraseña
+
+en la tabla alumnos:
+->en la columna usuarios_idusuarios:
+  ->poner el id del usuario correspondiente al alumno
+->en nombre:
+  ->escribir el nombre del alumno:
+->en primer_apellido:
+  ->escribir el primer_apellido del alumno:
+->en segundo_apellido:
+  ->escribir el segundo_apellido del alumno:
+
+en la tabla asignatura:
+->insertar en nombre_asignatura
+  ->insertar nombres de asignaturas
+
+finalmente la tabla calificaciones debe ser controlada por medio de la pagina con axios

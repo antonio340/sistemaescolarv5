@@ -82,7 +82,7 @@ $app->post('/eliminar/{usuario}', function (Request $request, Response $response
     return $response;
 });
 
-//consultar calificaciones
+
 
 
 //editar calificaciones
@@ -106,7 +106,7 @@ $app->post('/editar/{alumnos}', function (Request $request, Response $response, 
     return $response;
 });
 
-//editar calificaciones
+//consultar calificaciones
 $app->post('/consultar/{idusuario}', function (Request $request, Response $response, array $args){    
     
     $data = new stdClass();
@@ -128,20 +128,25 @@ $app->post('/consultar/{idusuario}', function (Request $request, Response $respo
     if ($perfil==true){
         //mostrar todas las calificaciones
         $all_cal = DB::table('calificaciones')
-        ->leftJoin('alumnos', 'calificaciones.alumnos_idalumnos', '=', 'alumnos.idalumnos' )        
+        ->leftJoin('alumnos', 'calificaciones.alumnos_idalumnos', '=', 'alumnos.idalumnos' )
+        ->leftJoin('asignaturas', 'calificaciones.asignaturas_idasignaturas', '=', 'asignaturas.idasignaturas' )        
         ->get();
+
+       
     } else {
         //mostrar solamente las calificaciones del alumno
         $cal_alumno = DB::table('calificaciones')
         ->leftJoin('alumnos', 'calificaciones.alumnos_idalumnos', '=', 'alumnos.idalumnos' )
+        ->leftJoin('asignaturas', 'calificaciones.asignaturas_idasignaturas', '=', 'asignaturas.idasignaturas' )   
         ->where('alumnos.usuarios_idusuarios',$user->idusuarios)
         ->get();        
     }
    
     
     $data->calificaciones = $perfil ? $all_cal : $cal_alumno;
-    $data->nombreperfil=$perfil;
+   
     $data->idUsuario = $user->idusuarios;
+    
     $response->getBody()->write(json_encode($data));
     return $response;
 });
