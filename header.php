@@ -1,3 +1,7 @@
+ <?php
+use Illuminate\Database\Capsule\Manager as DB;
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
